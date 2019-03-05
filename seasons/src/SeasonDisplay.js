@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './SeasonDisplay.css';
+
 class SeasonDisplay extends React.Component {
     getSeason(lat, month) {
         if (month > 2 && month < 9) {
@@ -14,13 +16,12 @@ class SeasonDisplay extends React.Component {
         const icon = season === 'Winter' ? 'snowflake' : 'sun';
         console.log('SeasonDisplay rendered');
         return (
-            <div>
-                <i className={`${icon} icon`} />
+            <div className={`season-display ${season}`}>
+                <i className={`icon-left ${icon} icon massive`} />
                 <h1>
                     {season}
                 </h1>
-                <i className={`${icon} icon`} />
-                <a href="https://www.google.com">Google</a>
+                <i className={`icon-right ${icon} icon massive`} />
             </div>
         );
     }

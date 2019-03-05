@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import TextLoader from './TextLoader';
 import SeasonDisplay from './SeasonDisplay';
 
 class App extends React.Component {
@@ -30,8 +31,7 @@ class App extends React.Component {
         console.log('App updated');
     }
 
-    render() {
-        console.log('App rendered');
+    renderContent() {
         if (this.state.errorMessage && !this.state.lat) {
             return (
                 <div>
@@ -50,7 +50,20 @@ class App extends React.Component {
 
         return (
             <div>
-                Loading
+                <TextLoader message='Please accept location request' />
+            </div>
+        );
+    }
+
+    divStyle = {
+        border: "5px solid red"
+    };
+
+    render() {
+        console.log('App rendered');
+        return (
+            <div style={this.divStyle}>
+                {this.renderContent()}
             </div>
         );
 
