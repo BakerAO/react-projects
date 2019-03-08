@@ -6,7 +6,7 @@ const Router = () => {
         <BrowserRouter>
             <div>
                 <Route path="/" exact />
-                <Route path="/page2" />
+                <Route path="/pagetwo" />
             </div>
         </BrowserRouter>
     );

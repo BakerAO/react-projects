@@ -1,0 +1,12 @@
+.row {
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+}
+
+.column {
+    background-color: red;
+    margin: 10px;
+    padding: 10px;
+    font-size: 30px;
+}
