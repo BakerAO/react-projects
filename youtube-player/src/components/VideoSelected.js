@@ -7,7 +7,7 @@ export default class VideoSelected extends React.Component {
         if (!selectedVideo) {
             return (
                 <div>
-                    Loading...
+                    Select a video to start
                 </div>
             );
         }

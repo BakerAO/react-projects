@@ -22,8 +22,13 @@ export default class App extends React.Component {
     };
 
     handleVideoSelect = (video) => {
+        // Leaving this console log in to reference the video object
         console.log(video);
         this.setState({ selectedVideo: video });
+    };
+
+    componentDidMount() {
+        this.handleTermSubmit('music');
     };
 
     render() {
