@@ -2,10 +2,14 @@ import React from 'react';
 
 export default class Card extends React.Component {
     render() {
+        let card = {
+            image: this.props.image,
+            name: this.props.name
+        };
         return (
-            <div>
-                <img alt='fake' src={this.props.image} width="100px" />
-                <h4>{this.props.name}</h4>
+            <div onClick={() => this.props.handleCardSelect(card)}>
+                <img alt='fake' src={card.image} width="200px" />
+                <h4>{card.name}</h4>
             </div>
         );
     };

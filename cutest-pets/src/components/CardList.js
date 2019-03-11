@@ -1,27 +1,24 @@
 import React from 'react';
-import faker from 'faker';
 import '../styles/CardList.css';
 import Card from './Card';
 
 export default class CardList extends React.Component {
     render() {
+        let cards = this.props.cards.map((card) => {
+            return (
+                <div key={card.name} className="column">
+                    <Card
+                        handleCardSelect={this.props.handleCardSelect}
+                        image={card.image}
+                        name={card.name}
+                    />
+                </div>
+            );
+        });
+
         return (
             <div className="row">
-                <div className="column">
-                    <Card image={faker.image.people()} name={faker.name.firstName()} />
-                </div>
-                <div className="column">
-                    <Card image={faker.image.cats()} name={faker.name.firstName()} />
-                </div>
-                <div className="column">
-                    <Card image={faker.image.city()} name={faker.name.firstName()} />
-                </div>
-                <div className="column">
-                    <Card image={faker.image.nightlife()} name={faker.name.firstName()} />
-                </div>
-                <div className="column">
-                    <Card image={faker.image.sports()} name={faker.name.firstName()} />
-                </div>
+                {cards}
             </div>
         );
     };

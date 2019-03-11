@@ -12,7 +12,8 @@ export default class ActiveCard extends React.Component {
         }
         return (
             <div>
-                Active Card
+                <img alt='fake' src={selectedCard.image} width="400px" />
+                <h4>{selectedCard.name}</h4>
             </div>
         );
     };

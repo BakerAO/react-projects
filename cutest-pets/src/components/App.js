@@ -10,9 +10,31 @@ export default class App extends React.Component {
         selectedCard: null
     };
 
+    getCardInfo = async (term) => {
+        const response = await unsplash.get('search/photos', {
+            params: {
+                query: term
+            }
+        });
+        let formattedResponse = {
+            image: response.data.results[0].urls.regular,
+            name: response.data.results[0].id
+        };
+        let cards = this.state.cards;
+        cards.push(formattedResponse);
+        this.setState({ cards: cards });
+    };
+
     handleCardSelect = (card) => {
         console.log(card);
         this.setState({ selectedCard: card });
+    };
+
+    componentDidMount() {
+        let practiceTerms = ['cat', 'dog', 'bird', 'elephant', 'zebra', 'horse', 'llama', 'frog', 'otter', 'duck'];
+        practiceTerms.forEach((term) => {
+            this.getCardInfo(term);
+        });
     };
 
     render() {
@@ -22,7 +44,7 @@ export default class App extends React.Component {
                     <ActiveCard selectedCard={this.state.selectedCard} />
                 </div>
                 <div>
-                    <CardList handleCardSelect={this.handleCardSelect} />
+                    <CardList cards={this.state.cards} handleCardSelect={this.handleCardSelect} />
                 </div>
             </div>
         );
