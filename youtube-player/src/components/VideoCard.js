@@ -1,5 +1,4 @@
 import React from 'react';
-
 import '../styles/VideoCard.css';
 
 export default class VideoCard extends React.Component {
