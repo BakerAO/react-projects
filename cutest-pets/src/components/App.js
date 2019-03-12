@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/App.css';
-import unsplash from '../api/unsplash';
+import interactive from '../api/interactive';
 import ActiveCard from './ActiveCard';
 import CardList from './CardList';
 
@@ -10,18 +10,18 @@ export default class App extends React.Component {
         selectedCard: null
     };
 
-    getCardInfo = async (term) => {
-        const response = await unsplash.get('search/photos', {
-            params: {
-                query: term
-            }
+    getCardInfo = async () => {
+        const response = await interactive.get('competitor/', {
         });
-        let formattedResponse = {
-            image: response.data.results[0].urls.regular,
-            name: response.data.results[0].id
-        };
-        let cards = this.state.cards;
-        cards.push(formattedResponse);
+        console.log(response.data);
+        let cards = response.data.map((index) => {
+            let item = {
+                id: index.id,
+                image: index.header_small_image,
+                name: index.title.rendered
+            };
+            return item;
+        });
         this.setState({ cards: cards });
     };
 
@@ -31,10 +31,7 @@ export default class App extends React.Component {
     };
 
     componentDidMount() {
-        let practiceTerms = ['cat', 'dog', 'bird', 'elephant', 'zebra', 'horse', 'llama', 'frog', 'otter', 'duck'];
-        practiceTerms.forEach((term) => {
-            this.getCardInfo(term);
-        });
+        this.getCardInfo();
     };
 
     render() {
