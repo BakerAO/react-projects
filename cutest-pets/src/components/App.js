@@ -13,7 +13,6 @@ export default class App extends React.Component {
     getCardInfo = async () => {
         const response = await interactive.get('competitor/', {
         });
-        console.log(response.data);
         let cards = response.data.map((index) => {
             let item = {
                 id: index.id,
@@ -26,7 +25,6 @@ export default class App extends React.Component {
     };
 
     handleCardSelect = (card) => {
-        console.log(card);
         this.setState({ selectedCard: card });
     };
 
