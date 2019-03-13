@@ -12,6 +12,9 @@ export default class App extends React.Component {
 
     getCardInfo = async () => {
         const response = await interactive.get('competitor/', {
+            params: {
+                per_page: 12
+            }
         });
         let cards = response.data.map((index) => {
             let item = {
@@ -27,6 +30,10 @@ export default class App extends React.Component {
     handleCardSelect = (card) => {
         this.setState({ selectedCard: card });
     };
+
+    handleSelectedCardClick() {
+        
+    }
 
     componentDidMount() {
         this.getCardInfo();
