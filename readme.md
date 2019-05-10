@@ -6,4 +6,3 @@ Libraries and API used:
 * YouTube
 * Unspash
 * JSON Place Holder
-
