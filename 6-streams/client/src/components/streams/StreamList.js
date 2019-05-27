@@ -75,4 +75,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, { fetchStreams })(StreamList);
-

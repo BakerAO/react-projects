@@ -14,8 +14,6 @@ const StreamDelete = () => {
         </>
     );
 
-
-
     return (
         <div>
             Stream Delete
